@@ -1,0 +1,22 @@
+.Box {
+    border: 1px white solid;
+    width: 75px;
+    height: 75px;
+    margin: 5px;
+    font-size: 45px;
+    text-align: center;
+    pointer-events: none;
+    border-radius: 15%;
+}
+
+.Green {
+    background-color: #90ec69;
+}
+
+.Yellow {
+    background-color: #f0f09a;
+}
+
+.Grey {
+    background-color: #7a7a77;
+}

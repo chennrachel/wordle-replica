@@ -1,0 +1,117 @@
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #282c34;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    margin: 0;
+}
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New,
+        monospace;
+}
+.App_Header__sWheT {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-size: calc(10px + 2vmin);
+    padding: 20px;
+}
+p {
+    font-size: 25px;
+}
+.App_Info__E2Tu2 {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.App_Keyboard__svYVZ {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.App_lastKeyboardRow__g1Bld {
+    align-items: center;
+    display: flex;
+}
+.Box_Box__phHmZ {
+    border: 1px solid #fff;
+    font-size: 45px;
+    height: 75px;
+    margin: 5px;
+    pointer-events: none;
+    text-align: center;
+    width: 75px;
+}
+.Box_Green__jrt9A {
+    background-color: #90ec69;
+}
+.Box_Yellow__qwC6Z {
+    background-color: #f0f09a;
+}
+.Box_Grey__m3sas {
+    background-color: #7a7a77;
+}
+.Row_Row__QNz20 {
+    display: flex;
+}
+input {
+    border: 1px solid #fff;
+    font-size: 45px;
+    height: 100px;
+    margin: 5px;
+    text-align: center;
+    width: 100px;
+}
+.Grid_Grid__kC-dG {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}
+.Replay_Btn__yNWgw {
+    border: 0;
+    border-radius: 25%;
+    color: #282c34;
+    font-size: 30px;
+    padding: 5px;
+}
+.Key_Key__nyx1z {
+    align-items: center;
+    background-color: #fff;
+    border-radius: 25%;
+    color: #000;
+    cursor: pointer;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    margin: 5px;
+    width: 40px;
+}
+.Key_Green__06Wgu {
+    background-color: #90ec69;
+}
+.Key_Yellow__WvU9f {
+    background-color: #f0f09a;
+}
+.Key_Grey__NqvJl {
+    background-color: #7a7a77;
+}
+.Button_Btn__d0Pam {
+    border: 0;
+    border-radius: 25%;
+    color: #1e581e;
+    cursor: pointer;
+    font-size: 25px;
+    height: 40px;
+    margin: 0 5px;
+    width: 65px;
+}
+.KeyboardRow_KeyboardRow__gTSXU {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+/*# sourceMappingURL=main.e6e172e0.css.map*/

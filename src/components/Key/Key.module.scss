@@ -1,0 +1,24 @@
+.Key {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 25%;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.Green {
+    background-color: #90ec69;
+}
+
+.Yellow {
+    background-color: #f0f09a;
+}
+
+.Grey {
+    background-color: #7a7a77;
+}

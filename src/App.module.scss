@@ -1,0 +1,29 @@
+.Header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-size: calc(10px + 2vmin);
+}
+
+p {
+    font-size: 25px;
+}
+
+.Info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Keyboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.lastKeyboardRow {
+    display: flex;
+    align-items: center;
+}
