@@ -33,9 +33,11 @@ const checkGreen = (guessArr, wordArr, row) => {
             let box = document.getElementById(`r${row - 1}b${i + 1}`);
             let key = document.getElementById(letter);
             if (box && key) {
-                box.classList.add(`Box_Green__jrt9A`);
-                key.classList.remove(`Key_Yellow__WvU9f`);
-                key.classList.add(`Key_Green__06Wgu`);
+                box.style.backgroundColor = `#90ec69`;
+                key.style.backgroundColor = `#90ec69`;
+                // box.classList.add(`Box_Green__jrt9A`);
+                // key.classList.remove(`Key_Yellow__WvU9f`);
+                // key.classList.add(`Key_Green__06Wgu`);
             }
             delete wordArr[i];
             delete guessArr[i];
@@ -49,13 +51,14 @@ const checkYellow = (guessArr, wordArr, row) => {
         if (typeof letter !== 'undefined') {
             if (wordArr.includes(letter)) {
                 let box = document.getElementById(`r${row - 1}b${i + 1}`);
-                if (box) {
-                    box.classList.add(`Box_Yellow__qwC6Z`);
-                }
                 let key = document.getElementById(guessArr[i]);
-                if (key) {
-                    key.classList.add(`Key_Yellow__WvU9f`);
+                if (box && key) {
+                    box.style.backgroundColor = `#f0f09a`;
+                    key.style.backgroundColor = `#f0f09a`;
                 }
+                // if (key) {
+                //     key.classList.add(`Key_Yellow__WvU9f`);
+                // }
                 delete wordArr[wordArr.findIndex((e) => e === letter)];
                 delete guessArr[i];
             }
@@ -67,34 +70,24 @@ const checkYellow = (guessArr, wordArr, row) => {
 const checkGrey = (guessArr, row) => {
     guessArr.forEach((letter, i) => {
         let box = document.getElementById(`r${row - 1}b${i + 1}`);
-        if (box) {
-            box.classList.add(`Box_Grey__m3sas`);
-        }
         let key = document.getElementById(letter);
-        if (key) {
-            key.classList.add(`Key_Grey__NqvJl`);
+        if (box && key) {
+            box.style.backgroundColor = `#7a7a77`;
+            key.style.backgroundColor = `#7a7a77`;
         }
     });
 };
 
 // remove colours from all boxes and keys
 export const resetGridAndKeys = () => {
-    let boxes = document.getElementsByClassName(`Box_Box__phHmZ`);
+    let boxes = document.getElementsByName(`Box`);
     Array.from(boxes).forEach((box) => {
-        box.classList.remove(
-            `Box_Green__jrt9A`,
-            `Box_Yellow__qwC6Z`,
-            `Box_Grey__m3sas`
-        );
+        box.style.backgroundColor = '';
         box.value = '';
     });
-    let keys = document.getElementsByClassName(`Key_Key__nyx1z`);
+    let keys = document.getElementsByName(`Key`);
     Array.from(keys).forEach((key) => {
-        key.classList.remove(
-            `Key_Green__06Wgu`,
-            `Key_Yellow__WvU9f`,
-            `Key_Grey__NqvJl`
-        );
+        key.style.backgroundColor = '';
     });
 };
 

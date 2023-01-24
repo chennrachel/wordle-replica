@@ -59,6 +59,7 @@ function App() {
         }
     }, [gameStatus]);
 
+    // notification for invalid guess (not enough letters or invalid word)
     const notify = (notification) => {
         toast.error(notification, { position: toast.POSITION.TOP_CENTER });
     };
@@ -97,6 +98,7 @@ function App() {
         setCheck(true);
     };
 
+    // logic for onscreen backspace key
     const handleBackSpace = (event) => {
         let activeRow = document.getElementById(`r${row}b1`).parentElement;
         let firstBoxInActiveRow = activeRow.firstChild;

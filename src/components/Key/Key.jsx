@@ -7,6 +7,7 @@ const Key = ({ letter }) => {
     const [row, setRow] = useContext(RowContext);
 
     const handleKeyClick = (event) => {
+        console.log(event);
         let activeRow = document.getElementById(`r${row}b1`).parentElement;
         if (activeRow) {
             activeRow.contentEditable = true;
@@ -19,7 +20,12 @@ const Key = ({ letter }) => {
     };
 
     return (
-        <div className={style.Key} id={letter} onClick={handleKeyClick}>
+        <div
+            className={style.Key}
+            id={letter}
+            onClick={handleKeyClick}
+            name={`Key`}
+        >
             <p>{letter}</p>
         </div>
     );

@@ -49,6 +49,10 @@ const Box = ({ id }) => {
         }
     };
 
+    const clickHandler = (event) => {
+        console.log(event);
+    };
+
     return (
         <>
             <input
@@ -56,6 +60,7 @@ const Box = ({ id }) => {
                 maxLength={1}
                 onKeyDown={keyDownHandler}
                 id={id}
+                name={`Box`}
             />
         </>
     );
