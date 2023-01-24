@@ -1,11 +1,9 @@
 import style from './Box.module.scss';
 import CheckContext from '../context/CheckContext/CheckContext';
 import { useContext } from 'react';
-import { findFirstEmpty } from '../../service/functions';
 
 const Box = ({ id }) => {
     const [check, setCheck] = useContext(CheckContext);
-    const [row, setRow] = useContext(CheckContext);
 
     const keyDownHandler = (event) => {
         let currentRow = event.target.parentElement;
@@ -47,10 +45,6 @@ const Box = ({ id }) => {
         else {
             event.preventDefault();
         }
-    };
-
-    const clickHandler = (event) => {
-        console.log(event);
     };
 
     return (
