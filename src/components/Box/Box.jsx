@@ -55,6 +55,7 @@ const Box = ({ id }) => {
                 onKeyDown={keyDownHandler}
                 id={id}
                 name={`Box`}
+                blurInputOnSelect={true}
             />
         </>
     );
