@@ -1,7 +1,6 @@
 .Key {
     width: 40px;
     height: 40px;
-    background-color: white;
     border-radius: 25%;
     color: black;
     display: flex;
@@ -11,10 +10,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
+    background-color: #1e1e1e;
+    border: 1px solid white;
     cursor: pointer;
     @media only screen and (max-width: 700px) {
         width: 8.5vw;
-        height: 8.5vw;
+        height: 11vw;
         margin: 2px;
         & p {
             font-size: 25px;

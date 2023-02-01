@@ -1,12 +1,14 @@
 .Box {
-    border: 1px white solid;
+    border: 3px white solid;
     width: 75px;
     height: 75px;
     margin: 5px;
     font-size: 45px;
+    color: white;
     text-align: center;
     border-radius: 15%;
     cursor: auto;
+    background-color: #1e1e1e;
     &:focus {
         outline-width: 0;
     }
