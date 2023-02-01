@@ -68,9 +68,9 @@ const checkGrey = (guessArr, row) => {
         let box = document.getElementById(`r${row - 1}b${i + 1}`);
         let key = document.getElementById(letter);
         if (box && key) {
-            box.style.backgroundColor = `#474745`;
+            box.style.backgroundColor = `#121212`;
             if (key.style.backgroundColor == ``) {
-                key.style.backgroundColor = `#474745`;
+                key.style.backgroundColor = `#121212`;
             }
         }
     });
