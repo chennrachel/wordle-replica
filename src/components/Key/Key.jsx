@@ -7,15 +7,14 @@ const Key = ({ letter }) => {
     const [row, setRow] = useContext(RowContext);
 
     const handleKeyClick = (event) => {
-        console.log(event);
-        let activeRow = document.getElementById(`r${row}b1`).parentElement;
-        if (activeRow) {
-            activeRow.contentEditable = true;
+        if (row <= 6) {
+            let activeRow = document.getElementById(`r${row}b1`).parentElement;
             let nextBox = document.getElementById(
                 `r${row}b${findFirstEmpty(activeRow.children)}`
             );
-            nextBox.focus();
-            nextBox.value = event.target.innerText;
+            if (nextBox) {
+                nextBox.value = event.target.innerText;
+            }
         }
     };
 

@@ -10,8 +10,5 @@ export const fetchWord = async () => {
 export const checkWordExists = async (guess) => {
     let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${guess}`;
     let response = await fetch(url);
-    if (response.ok) {
-        return response.status;
-    }
-
+    return response.status;
 };

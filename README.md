@@ -21,4 +21,4 @@ For future:
 -   The words chosen by the word API (although technically English words) are sometimes pretty obscure. This makes the game a lot harder and a bit less fun
 -   The API called when a guess is submitted is different to the API that fetches the initial word. That means (although rare), its possible that the initial word will return invalid for the guess
 -   Add type safety by converting the project to TypeScript
--   A few more restricted user events EG. user cannot click outside of the grid or the keyboard so that the next active box is always in focus
+-   Include indication of loading while fetching from API

@@ -33,91 +33,103 @@ function App() {
         getResult();
     }, [gameReset]);
 
-    // useEffect - on start and game restart, focus on first box
-    useEffect(() => {
-        let firstBox = document.getElementById(`r1b1`);
-        let firstRow = firstBox.parentElement;
-        firstBox.focus();
-        firstRow.contentEditable = true;
-    }, [gameReset]);
-
     // useEffect - check row guess against word, set game status
     useEffect(() => {
         colours(guess, word, row);
         if (guess === word && guess !== '') {
             setGameStatus('won');
+            setRow(10);
         } else if (row > 6) {
             setGameStatus('lost');
         }
     }, [row]);
 
-    // useEffect - if game status is not 'playing' ie. if it is 'lost' or 'won', make grid not editable
-    useEffect(() => {
-        if (gameStatus !== 'playing') {
-            document.activeElement.parentElement.contentEditable = false;
-            document.activeElement.blur();
-        }
-    }, [gameStatus]);
-
-    // notification for invalid guess (not enough letters or invalid word)
+    // notification for invalid guess (not enough letters or invalid word) or API error
     const notify = (notification) => {
         toast.error(notification, { position: toast.POSITION.TOP_CENTER });
     };
 
-    // useEffect - after 'check for 5' set guess and row + 1 (focus on next first box of next row after guess)
+    // fx's for getting reused elements
+    const getActiveRow = () => {
+        return document.getElementById(`r${row}b1`).parentElement;
+    };
+    const getNextBox = (children) => {
+        return document.getElementById(`r${row}b${findFirstEmpty(children)}`);
+    };
+
+    // useEffect - check # of letters in guess, if 5, check word exists. handle errors.
     useEffect(() => {
         const checkGuess = async () => {
             if (check && row <= 6) {
-                let activeRow = document.getElementById(
-                    `r${row}b1`
-                ).parentElement;
-                let nextRow = activeRow.nextSibling;
+                let activeRow = getActiveRow();
                 let currentRowsBoxes = activeRow.children;
-                // check number of letters to stop the following happening on first render and twice after check submit
+                // check number of letters
                 if (checkNumberOfLetters(currentRowsBoxes)) {
                     let status = await checkWordExists(
                         stringGuess(Array.from(currentRowsBoxes))
                     );
                     if (status === 200) {
-                        if (row <= 5) {
-                            activeRow.contentEditable = false;
-                            nextRow.contentEditable = true;
-                            nextRow.firstChild.focus();
-                        }
                         setRow(row + 1);
                         setGuess(stringGuess(currentRowsBoxes));
-                    } else notify('word does not exist');
-                } else notify('not enough letters');
+                    }
+                    // handle errors
+                    if (status === 404) {
+                        notify(`Word does not exist`);
+                    }
+                    if (status === 500) {
+                        notify(
+                            `Error! Something went wrong but it's not your fault. Sorry- try again later!`
+                        );
+                    }
+                } else notify(`Not enough letters`);
             }
         };
         checkGuess();
         setCheck(false);
     }, [check]);
 
-    const handleCheck = () => {
-        setCheck(true);
-    };
-
-    // logic for onscreen backspace key
-    const handleBackSpace = (event) => {
-        let activeRow = document.getElementById(`r${row}b1`).parentElement;
+    // fx - handle onscreen on keypress backspace
+    const handleBackSpace = () => {
+        let activeRow = getActiveRow();
         let firstBoxInActiveRow = activeRow.firstChild;
-        let activeBox = document.getElementById(
-            `r${row}b${findFirstEmpty(activeRow.children)}`
-        );
+        let nextBox = getNextBox(activeRow.children);
         if (firstBoxInActiveRow.value !== '') {
-            if (activeBox) {
-                let previousBox = activeBox.previousSibling;
-                if (activeBox.value === '') {
+            if (nextBox) {
+                let previousBox = nextBox.previousSibling;
+                if (nextBox.value === '') {
                     previousBox.value = '';
-                    previousBox.focus();
                 }
             } else {
                 activeRow.lastChild.value = '';
-                activeRow.lastChild.focus();
             }
         }
     };
+
+    useEffect(() => {
+        const keyDownHandler = (event) => {
+            let activeRow = getActiveRow();
+            let nextBox = getNextBox(activeRow.children);
+            // equivalent to regex for [a-zA-Z]
+            if (nextBox && event.keyCode > 64 && event.keyCode < 91) {
+                nextBox.value = event.key.toUpperCase();
+            }
+            // call backspace fx
+            if (event.key === 'Backspace') {
+                handleBackSpace();
+            }
+            // call checkGuess fx
+            else if (event.key === 'Enter') {
+                setCheck(true);
+            }
+        };
+
+        if (row <= 6) {
+            document.addEventListener('keydown', keyDownHandler);
+        }
+        return () => {
+            document.removeEventListener('keydown', keyDownHandler);
+        };
+    }, [row]);
 
     return (
         <>
@@ -133,7 +145,7 @@ function App() {
                             <div className={style.lastKeyboardRow}>
                                 <Button
                                     value={'fa-solid fa-spell-check'}
-                                    onClick={handleCheck}
+                                    onClick={() => setCheck(true)}
                                 />
                                 <KeyboardRow lowLim={19} highLim={26} />
                                 <Button

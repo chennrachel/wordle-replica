@@ -35,9 +35,6 @@ const checkGreen = (guessArr, wordArr, row) => {
             if (box && key) {
                 box.style.backgroundColor = `#90ec69`;
                 key.style.backgroundColor = `#90ec69`;
-                // box.classList.add(`Box_Green__jrt9A`);
-                // key.classList.remove(`Key_Yellow__WvU9f`);
-                // key.classList.add(`Key_Green__06Wgu`);
             }
             delete wordArr[i];
             delete guessArr[i];
@@ -54,11 +51,10 @@ const checkYellow = (guessArr, wordArr, row) => {
                 let key = document.getElementById(guessArr[i]);
                 if (box && key) {
                     box.style.backgroundColor = `#f0f09a`;
-                    key.style.backgroundColor = `#f0f09a`;
+                    if (key.style.backgroundColor != `rgb(144, 236, 105)`) {
+                        key.style.backgroundColor = `#f0f09a`;
+                    }
                 }
-                // if (key) {
-                //     key.classList.add(`Key_Yellow__WvU9f`);
-                // }
                 delete wordArr[wordArr.findIndex((e) => e === letter)];
                 delete guessArr[i];
             }
@@ -73,7 +69,9 @@ const checkGrey = (guessArr, row) => {
         let key = document.getElementById(letter);
         if (box && key) {
             box.style.backgroundColor = `#7a7a77`;
-            key.style.backgroundColor = `#7a7a77`;
+            if (key.style.backgroundColor == ``) {
+                key.style.backgroundColor = `#7a7a77`;
+            }
         }
     });
 };

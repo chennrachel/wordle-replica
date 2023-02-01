@@ -1,37 +1,9 @@
 import Key from '../../components/Key/Key';
 import style from './KeyboardRow.module.scss';
 import React from 'react';
+import keyboard from '../../service/keyboard';
 
 const KeyboardRow = ({ lowLim, highLim }) => {
-    const keyboard = [
-        'Q',
-        'W',
-        'E',
-        'R',
-        'T',
-        'Y',
-        'U',
-        'I',
-        'O',
-        'P',
-        'A',
-        'S',
-        'D',
-        'F',
-        'G',
-        'H',
-        'J',
-        'K',
-        'L',
-        'Z',
-        'X',
-        'C',
-        'V',
-        'B',
-        'N',
-        'M',
-    ];
-
     return (
         <div className={style.KeyboardRow}>
             {keyboard
