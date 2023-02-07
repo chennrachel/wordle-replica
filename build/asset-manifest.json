@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/wordle-replica/static/css/main.c05c47e4.css",
+    "main.css": "/wordle-replica/static/css/main.007dfc7a.css",
     "main.js": "/wordle-replica/static/js/main.630354a0.js",
     "static/js/787.538374a0.chunk.js": "/wordle-replica/static/js/787.538374a0.chunk.js",
     "index.html": "/wordle-replica/index.html",
-    "main.c05c47e4.css.map": "/wordle-replica/static/css/main.c05c47e4.css.map",
+    "main.007dfc7a.css.map": "/wordle-replica/static/css/main.007dfc7a.css.map",
     "main.630354a0.js.map": "/wordle-replica/static/js/main.630354a0.js.map",
     "787.538374a0.chunk.js.map": "/wordle-replica/static/js/787.538374a0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c05c47e4.css",
+    "static/css/main.007dfc7a.css",
     "static/js/main.630354a0.js"
   ]
 }

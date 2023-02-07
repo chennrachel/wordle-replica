@@ -132,13 +132,17 @@ function App() {
     }, [row]);
 
     return (
-        <>
-            <RowContext.Provider value={[row, setRow]}>
-                <CheckContext.Provider value={[check, setCheck]}>
-                    <header className={style.Header}>WORDLE REPLICA</header>
-                    <ToastContainer autoClose={1500} />
-                    <Grid />
-                    <div className={style.Info}>
+        <RowContext.Provider value={[row, setRow]}>
+            <CheckContext.Provider value={[check, setCheck]}>
+                <header className={style.Header}>WORDLE REPLICA</header>
+                <ToastContainer autoClose={1500} />
+                <Grid />
+                <div className={style.Info}>
+                    {gameStatus === 'won' || gameStatus === 'lost' ? (
+                        <p>
+                            You {gameStatus}! The word was {word}.
+                        </p>
+                    ) : (
                         <div className={style.Keyboard}>
                             <KeyboardRow lowLim={0} highLim={9} />
                             <KeyboardRow lowLim={10} highLim={18} />
@@ -154,25 +158,16 @@ function App() {
                                 />
                             </div>
                         </div>
-                        {gameStatus === 'won' || gameStatus === 'lost' ? (
-                            <>
-                                <p>
-                                    You {gameStatus}! The word was {word}.
-                                </p>
-                                <Replay
-                                    setGameReset={setGameReset}
-                                    gameReset={gameReset}
-                                    setGameStatus={setGameStatus}
-                                    setGuess={setGuess}
-                                />
-                            </>
-                        ) : (
-                            ''
-                        )}
-                    </div>
-                </CheckContext.Provider>
-            </RowContext.Provider>
-        </>
+                    )}
+                    <Replay
+                        setGameReset={setGameReset}
+                        gameReset={gameReset}
+                        setGameStatus={setGameStatus}
+                        setGuess={setGuess}
+                    />
+                </div>
+            </CheckContext.Provider>
+        </RowContext.Provider>
     );
 }
 

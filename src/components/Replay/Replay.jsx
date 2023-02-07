@@ -12,14 +12,13 @@ const Replay = ({ setGameReset, gameReset, setGameStatus, setGuess }) => {
         setRow(1);
         setGuess('');
         resetGridAndKeys();
+        document.getElementById(`r1b1`).focus();
     };
 
     return (
-        <div>
-            <button className={style.Btn} onClick={handleClick}>
-                <i className='fa-solid fa-rotate-left'></i>
-            </button>
-        </div>
+        <button className={style.Btn} onClick={handleClick}>
+            <i className='fa-solid fa-rotate-left'></i>
+        </button>
     );
 };
 
