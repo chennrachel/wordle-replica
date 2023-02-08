@@ -17,7 +17,7 @@ const Replay = ({ setGameReset, gameReset, setGameStatus, setGuess }) => {
 
     return (
         <button className={style.Btn} onClick={handleClick}>
-            <i className='fa-solid fa-rotate-left'></i>
+            <i className='fa-solid fa-rotate-left' />
         </button>
     );
 };

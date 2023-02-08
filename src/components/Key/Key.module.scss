@@ -18,6 +18,7 @@
         width: 8.5vw;
         height: 12vw;
         margin: 2px;
+        touch-action: manipulation;
         & p {
             font-size: 25px;
         }
